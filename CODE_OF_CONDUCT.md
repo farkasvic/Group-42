@@ -26,7 +26,7 @@ Our goal is to ensure every member of this project feels safe, valued, and empow
 
 -Take responsibility for their contributions to the project
 
-Unacceptable Behaviour
+3. Unacceptable Behaviour
 
 -The following behaviours will not be tolerated in this project:
 
@@ -45,3 +45,23 @@ Unacceptable Behaviour
 -Inappropriate or offensive communication
 
 -Any behaviour that causes another team member to feel unsafe, excluded, or disrespected
+
+4. Reporting a Concern
+
+If you experience or observe a violation of this Code of Conduct, please report it to:
+
+The Group 42 team lead or any group member you feel comfortable approaching
+
+The course TA or instructor if the issue cannot be resolved within the group
+
+Reports should include:
+
+A description of the behaviour
+
+When and where it occurred
+
+Individuals involved
+
+Any evidence (screenshots, messages, etc.)
+
+All reports will be reviewed confidentially and with sensitivity.
