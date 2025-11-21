@@ -12,7 +12,25 @@ The data was sourced from KEEL (Knowledge Extraction based on Evolutionary Learn
 
 ## Running the analysis
 
-- how to run your data analysis
+### First Time Setup
+
+First time running the project, run the following from the root of this repository:
+
+```bash
+conda-lock install --name diabetesgroup42env conda-lock.yml
+```
+
+### Running the Analysis
+
+To run the analysis, run the following from the root of this repository:
+
+```bash
+jupyter lab
+```
+
+Open `notebooks/diabetes-analysis.ipynb` in Jupyter Lab and under Switch/Select Kernel choose "Python [conda env:diabetesgroup42env]".
+
+Next, under the "Kernel" menu click "Restart Kernel and Run All Cells...".
 
 ## Dependencies
 
