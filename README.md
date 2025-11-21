@@ -12,19 +12,33 @@ The data was sourced from KEEL (Knowledge Extraction based on Evolutionary Learn
 
 ## Running the analysis
 
-- how to run your data analysis
+### First Time Setup
+
+First time running the project, run the following from the root of this repository:
+
+```bash
+conda-lock install --name diabetesgroup42env conda-lock.yml
+```
+
+### Running the Analysis
+
+To run the analysis, run the following from the root of this repository:
+
+```bash
+jupyter lab
+```
+
+Open `notebooks/diabetes-analysis.ipynb` in Jupyter Lab and under Switch/Select Kernel choose "Python [conda env:diabetesgroup42env]".
+
+Next, under the "Kernel" menu click "Restart Kernel and Run All Cells...".
 
 ## Dependencies
 
-- matplotlib=3.10.6
-- altair=5.5.0
-- requests=2.32.4
-- pandas=2.3.2
-- scikit-learn=1.7.2
-- seaborn=0.13.2
-- python=3.12
-- ipykernel=6.30.1
-- pingouin=0.5.5
+conda (version 25.0.0 or higher)
+conda-lock (version 3.0.4 or higher)
+jupyterlab (version 4.0.0 or higher)
+nb_conda_kernels (version 2.5.1 or higher)
+Python and packages listed in environment.yml
 
 ## License
 
@@ -38,6 +52,7 @@ MIT license. See [the license file](LICENSE.md) for more information.
 ## References
 
 KEEL Diabetes Dataset (By KEEL). (n.d.). [Dataset]. https://sci2s.ugr.es/keel/dataset.php?cod=45
+
 Centers for Disease Control and Prevention. (2025, September 17). FASTSTATS - leading causes of death. Centers for Disease Control and Prevention. https://www.cdc.gov/nchs/fastats/leading-causes-of-death.htm
 
 World Health Organization. (n.d.). Diabetes. https://www.who.int/news-room/fact sheets/detail/diabetes
