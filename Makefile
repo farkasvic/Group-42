@@ -6,9 +6,8 @@ help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
 .PHONY: all
-all: ## runs the targets: cl, env, build
+all: ## runs the targets: cl, build
 	make cl
-	make env
 	make build
 
 .PHONY: cl
@@ -45,6 +44,11 @@ up: ## stop and start docker-compose services
 .PHONY: stop
 stop: ## stop docker-compose services
 	docker-compose stop
+
+.PHONY: clean
+clean: ## stop and remove container
+	make stop
+	docker-compose rm
 
 # docker multi architecture build rules (from Claude) -----
 
