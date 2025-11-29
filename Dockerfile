@@ -8,7 +8,7 @@ COPY conda-lock.yml conda-lock.yml
 RUN mamba install -n base -c conda-forge conda-lock -y
 
 # install packages from lockfile into dockerlock environment
-RUN conda-lock install --mamba -n dockerlock conda-lock.yml
+RUN conda-lock install --mamba -n dockerlock conda-lock.yml -v
 
 # make dockerlock the default environment
 RUN echo "source /opt/conda/etc/profile.d/conda.sh && conda activate dockerlock" >> ~/.bashrc
