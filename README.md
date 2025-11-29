@@ -27,21 +27,44 @@ Additional dependencies are specified in the [`Dockerfile`](Dockerfile).
 
 ### Running the Analysis
 
-1. Navigate to the root of this project on your computer using the command line and enter the following command to update `conda-lock.yml`, create the environment, and build the Docker container.
+If using Windows or Mac, make sure that Docker Desktop is running.
+
+1. Navigate to the root of this project on your computer using the command line and enter the following command:
 
 ``` 
-make all
+make run
 ```
 
 2. Launch Jupyter Lab by navigating to http://localhost:8888 on your web brower. Open `notebooks/diabetes-analysis.ipynb`.
 
 3. Under the "Kernel" menu, click "Restart Kernel and Run All Cells...".
 
-4. To stop running the Docker container, enter the following command in the command line:
+4. To stop running the Docker container and clean up the resources, enter the following command in the command line:
 
 ``` 
-make stop
+make clean
 ```
+
+## Developer notes
+
+### Developer dependencies
+
+- `conda`
+
+### Adding a new dependency
+
+1. Add the dependency to the `environment.yml` on a new branch.
+
+2. Run the following command to update the `conda-lock.yml` file and re-build the Docker image locally and ensure it runs properly:
+
+``` 
+make all
+```
+
+3. Push the changes to GitHub. A new Docker image will be built and pushed to Docker Hub automatically. It will be tagged with the `latest`.
+
+4. Send a pull request to merge the changes into the `main` branch.
+
 
 ## License
 

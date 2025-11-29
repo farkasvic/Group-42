@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: dockerlock
+    image: vicf123/docker-condalock-jupyterlab:latest
     container_name: dockerlock
     ports:
       - "8888:8888"
