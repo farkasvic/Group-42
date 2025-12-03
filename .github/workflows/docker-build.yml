@@ -11,7 +11,11 @@ on:
       - 'Dockerfile'
       - 'conda-lock.yml'
       - '.github/workflows/docker-build.yml'
-  # also allow manual trigger
+
+    branches:
+      - '**'       
+    tags-ignore:
+      - '**' 
   workflow_dispatch:
 
 jobs:
