@@ -1,6 +1,7 @@
 
 import pandas as pd
 import pandera as pa
+import click
 
 from pandera import Column, DataFrameSchema, Check
 from deepchecks.tabular import Dataset
@@ -9,6 +10,7 @@ from deepchecks.tabular.suites import data_integrity
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 warnings.filterwarnings("ignore", category=UserWarning)
+
 
 expected_columns = ["Age", "Deficit", "C_peptide"]
 
@@ -41,16 +43,21 @@ schema_ranges = DataFrameSchema(
     strict=True,
 )
 
-def main():
+@click.command()
+@click.option('--cleaned-data', 'cleaned_data', type=click.Path(exists=True),
+              default="data/processed/clean_diabetes.csv", help="Path to read in cleaned data")
+
+
+def main(cleaned_data):
   
-    diabetes_df = pd.read_csv('data/processed/clean_diabetes.csv')
+    diabetes_df = pd.read_csv(cleaned_data)
 
     # Validate
     try:
         schema_basic.validate(diabetes_df)
         print("✅ Basic schema validation passed (columns, types, missingness).")
     except Exception as e:
-        print(f"❌ Basic schema validation failed: {e}")
+        print(f"Basic schema validation failed: {e}")
 
 
     try:
@@ -61,14 +68,14 @@ def main():
 
         print("✅ Data validation suite passed.")
     except Exception as e:
-        print(f"❌ Data validation failed: {e}")
+        print(f"Data validation failed: {e}")
 
 
     try:
         schema_ranges.validate(diabetes_df)
         print("✅ Range and duplicate checks passed.")
     except Exception as e:
-        print(f"❌ Range/duplicate validation failed: {e}")
+        print(f"Range/duplicate validation failed: {e}")
 
 
 if __name__ == "__main__":
