@@ -28,9 +28,10 @@ def main(cleaned_data, model_output, table_output):
     y = diabetes_df["C_peptide"]
 
     model = pg.linear_regression(X, y)
+    resid = model.residuals_
 
     with open(os.path.join(model_output, "lr_model.pickle"), "wb") as f:
-        pickle.dump(model, f)
+        pickle.dump({'results': model, 'residuals': resid}, f)
 
     with open(os.path.join(table_output, "model_summary.csv"), "w") as f:
 
