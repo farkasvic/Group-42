@@ -93,8 +93,8 @@ Note that checking category levels is irrelevant as dataset does not contain cat
 ```{python}
 #| label: tbl-info
 #| tbl-cap: Summary statistics of the dataframe
-diabetes_df = pd.read_csv("../results/tables/data_summary.txt",sep='\t')
-diabetes_df
+cleaned_data = pd.read_csv("../data/processed/clean_diabetes.csv")
+cleaned_data.info()
 ```
 
 No null values, data types were set to float earlier
@@ -102,23 +102,18 @@ No null values, data types were set to float earlier
 ```{python}
 #| label: tbl-describe
 #| tbl-cap: Dataset descriptive statistics
-cleaned_data = pd.read_csv("../data/processed/clean_diabetes.csv")
 cleaned_data.describe()
 ```
 
 The mean patient age is 9 years old, with the maximum age being 15.6 and the minimum being 0.9. The C_peptide concentration average is about 4.75, mean Base Deficit value is -8.15 mEq/L. The standard deviation of Base Deficit is quite high, at about 7.1 mEq/L, while the standard deviations of the other two variables are within a reasonable range for their domains. This high variance could be due to the small size of the dataset.
 
-```{# {python}
-# sns.histplot(diabetes_df["C_peptide"], kde=True)
-# plt.title("Distribution of C_peptide")
-# plt.show()
-```
+![Distribution of target variable, C_peptide](images/c_peptide_distribution.png){#fig-dist}
 
-![Distribution of target variable, C_peptide](../results/tables/c_peptide_distribution.png){#fig-dist}
+\![[Scatterplot matrix of all variables](../results/scatterplot_matrix.png)\]([../results/figures/]{.underline}scatterplot_matrix.png){#fig-scatter}
 
-\![Scatterplot matrix of all variables](../results/scatterplot_matrix.png){#fig-scatter}
+@fig-heatmap: Correlation heatmap of all variables
 
-Figure 5: Correlation heatmap of all variables
+\![[Correlation heatmap of variables](../results/scatterplot_matrix.png)\]([../results/figures/]{.underline}correlation_heatmap.png){#fig-heatmap}
 
 #### EDA Summary:
 
@@ -136,13 +131,11 @@ To check for Normality of residuals, we employ the Shapiro-Wilk test and Q-Q plo
 
 Figure 7: Shapiro-Wilk Test Results
 
-```{# {python}
-# pg.qqplot(resid)
-```
-
 Figure 8: Q-Q Plot of Residuals
 
-To test for equal variance, we plot the residuals against the fitted values for the model.
+\![Plot of Residuals\]([../results/figures/]{.underline}qq_plot.png){#fig-qq}
+
+#### To test for equal variance, we plot the residuals against the fitted values for the model.
 
 Figure 9: Residuals vs Fitted Values
 
