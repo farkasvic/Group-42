@@ -1,5 +1,6 @@
 # use the miniforge base, make sure you specify a version
 FROM condaforge/miniforge3:latest
+RUN apt-get update && apt-get install -y make
 
 # copy the lockfile into the container
 COPY conda-lock.yml conda-lock.yml

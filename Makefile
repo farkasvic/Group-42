@@ -40,15 +40,50 @@ up: ## stop and start docker-compose services
 	# by default stop everything before re-creating
 	make stop
 	docker-compose up -d
+	docker exec -it dockerlock bash
 
 .PHONY: stop
-stop: ## stop docker-compose services
+stop: ## stop docker-compose services and remove conatiner
 	docker-compose stop
+	docker-compose rm
 
 .PHONY: clean
-clean: ## stop and remove container
-	make stop
-	docker-compose rm
+clean: ## remove all generated files
+	rm -rf data/raw/* \
+	data/processed/* \
+	data/raw/* \
+	results/figures/* \
+	results/models/* \
+	results/tables/* \
+	reports/diabetes-analysis.html
+
+.PHONY: files
+files: ## runs the scripts and renders the report
+	make clean
+	python scripts/download_data.py \
+		--url=https://sci2s.ugr.es/keel/dataset/data/regression/diabetes.zip \
+		--data-dir=data/raw
+	python scripts/clean_data.py \
+		--input-path=data/raw/diabetes.dat \
+		--output-dir=data/processed \
+		--output-file=clean_diabetes.csv
+	python scripts/data_validation.py \
+		--cleaned-data=data/processed/clean_diabetes.csv
+	python scripts/eda.py \
+		--cleaned-data=data/processed/clean_diabetes.csv \
+		--plot-output=results/figures \
+		--table-output=results/tables
+	python scripts/modelling.py \
+		--cleaned-data=data/processed/clean_diabetes.csv \
+		--model-output=results/models \
+		--table-output=results/tables
+	python scripts/diagnostics.py \
+		--cleaned-data=data/processed/clean_diabetes.csv \
+		--model=results/models/lr_model.pickle \
+		--plot-output=results/figures \
+		--table-output=results/tables
+		
+	quarto render reports/diabetes-analysis.qmd --to html
 
 # docker multi architecture build rules (from Claude) -----
 

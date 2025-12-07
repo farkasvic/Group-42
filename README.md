@@ -35,14 +35,17 @@ If using Windows or Mac, make sure that Docker Desktop is running.
 make run
 ```
 
-2. Launch Jupyter Lab by navigating to http://localhost:8888 on your web brower. Open `notebooks/diabetes-analysis.ipynb`.
-
-3. Under the "Kernel" menu, click "Restart Kernel and Run All Cells...".
-
-4. To stop running the Docker container and clean up the resources, enter the following command in the command line:
+2. In the same terminal, enter following command to rerun the analysis and generate the new report:
 
 ``` 
-make clean
+make files
+```
+
+4. To stop running the Docker container and clean up the resources, enter the following commands:
+
+``` 
+exit
+make stop
 ```
 
 ## Developer notes

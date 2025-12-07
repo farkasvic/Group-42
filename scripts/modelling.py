@@ -35,7 +35,7 @@ def main(cleaned_data, model_output, table_output):
 
     with open(os.path.join(table_output, "model_summary.csv"), "w") as f:
 
-        f.write(pd.DataFrame(model).round(3).to_csv())
+        f.write(pd.DataFrame(model).round(4).to_csv())
 
 
 
