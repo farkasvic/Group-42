@@ -1,19 +1,26 @@
 ---
 title: Regression Analysis of C-Peptide Dependence on Age and Base Deficit
 jupyter: python3
+author: "Group 42"
+date: 12/06/2025
+format: html
+bibliography: references.bib
+execute:
+  echo: false
+editor: visual
 ---
 
 
 
 ## Summary
 
-This study analyzes a dataset of children who were recently diagnosed with Type 1 diabetes to understand what factors affect how much insulin their bodies can still produce. It uses a log transformation of C-peptide concentration as a measure of remaining insulin production and examines how it relates to child’s age and a measure of blood acidity called base deficit. Using regression analysis, the study explores whether older children and those who had less base deficit at diagnosis retained more natural insulin production. Using a linear regression analysis, we found that age and base deficit are both factors that are linked to C-peptide levels.  
+This study analyzes a dataset of children who were recently diagnosed with Type 1 diabetes to understand what factors affect how much insulin their bodies can still produce. It uses a log transformation of C-peptide concentration as a measure of remaining insulin production and examines how it relates to child’s age and a measure of blood acidity called base deficit. [@keelDataset] Using regression analysis, the study explores whether older children and those who had less base deficit at diagnosis retained more natural insulin production. Using a linear regression analysis, we found that age and base deficit are both factors that are linked to C-peptide levels.  
 
 ## Introduction 
 
-Diabetes is a chronic disease in which the body is unable to properly regulate blood sugar. According to the World Health Organization (WHO), more than 830 million people worldwide, around one in ten people, live with diabetes (2024). It is also one of the top ten leading causes of death globally (CDC, 2023).
+Diabetes is a chronic disease in which the body is unable to properly regulate blood sugar. According to the World Health Organization, more than 830 million people worldwide, around one in ten people, live with diabetes [@whoDiabetesFacts].  It is also one of the top ten leading causes of death globally. [@cdc2025faststats]
 
-WHO says: “Diabetes causes blindness, kidney failure, heart attacks, stroke and lower limb amputation […] Neither its cause nor the means to prevent it are known.” (2024)
+WHO says: “Diabetes causes blindness, kidney failure, heart attacks, stroke and lower limb amputation […] Neither its cause nor the means to prevent it are known.” [@whoDiabetesFacts]
 
 Type 1 diabetes, also called insulin-dependent diabetes, is a more serious form that usually starts in childhood. In Type 1 diabetes, the pancreas stops producing insulin, a hormone that allows sugar to move from the blood into the body’s cells. Without insulin, blood sugar rises to dangerous levels, and people need insulin injections to survive.
 
@@ -36,7 +43,7 @@ When studying patterns of insulin-dependent diabetes mellitus in children, is th
 ### Data Source:
 KEEL Diabetes Data Set
 
-The data was sourced from KEEL (Knowledge Extraction based on Evolutionary Learning), which is an open source software tool containing datasets that can be used for knowledge data discovery. The chosen dataset is designed for regression analysis, taken from LIACC's repository. The objective of this data is to investigate how factors such as patient age and base deficit (a measure of metabolic acidosis) are associated with concentration of C-peptide, in order to further understand patterns of insulin-resistant Diabetes Mellitus in children.
+The data was sourced from KEEL (Knowledge Extraction based on Evolutionary Learning), which is an open source software tool containing datasets that can be used for knowledge data discovery. The chosen dataset is designed for regression analysis, taken from LIACC's repository. The objective of this data is to investigate how factors such as patient age and base deficit (a measure of metabolic acidosis) are associated with concentration of C-peptide, in order to further understand patterns of insulin-resistant Diabetes Mellitus in children. [@keelDataset]
 
 ### Data Structure:
 
@@ -48,7 +55,7 @@ The data was sourced from KEEL (Knowledge Extraction based on Evolutionary Learn
 
 ## Methods
 
-Multiple linear regression was used to model the relationship of age and base deficit to logarithm of C-peptide concentration in patients. The Python programming language (Van Rossum and Drake 2009) was used to perform the analysis.
+Multiple linear regression was used to model the relationship of age and base deficit to logarithm of C-peptide concentration in patients. The Python programming language [@vanrossum2009python] was used to perform the analysis.
 
 ### Imports
 
@@ -349,7 +356,7 @@ The results showing that Age and Base Deficit are both positive predictors of C-
 
 Since C-peptide reflects how much insulin the body can still produce, the positive relationship with age suggests that older children in this dataset tend to have more remaining beta-cell function at the time of measurement. This is reasonable because some older children may lose beta-cells more slowly, or may still be in an early stage of the disease when some insulin production is preserved.
 
-The positive effect of base deficit here means that higher C-peptide levels are linked to a less severe Deficit (meaning a less severe case of DKA). This fits existing medical understanding: children who still produce some insulin are less likely to arrive with very severe metabolic disturbances compared to those whose beta-cells are almost fully destroyed. (Novac et al., 2023)
+The positive effect of base deficit here means that higher C-peptide levels are linked to a less severe Deficit (meaning a less severe case of DKA). This fits existing medical understanding: children who still produce some insulin are less likely to arrive with very severe metabolic disturbances compared to those whose beta-cells are almost fully destroyed. [@novac2023cpeptide]
 
 The one surprising part of the results is the low R² value (0.337). Even though the model is statistically significant, it explains only a portion of the differences in C-peptide levels. This suggests that other factors, such as how long the child has had symptoms, their genetic markers, autoantibody levels, or initial glucose and HbA1c—also play important roles and should be included in future analyses.
 
@@ -363,7 +370,7 @@ The findings also show that the onset of Type 1 diabetes is not the same for all
 
 Knowing how Age and Deficit relate to C-peptide can help doctors tailor treatments more effectively. For example, children with higher predicted C-peptide levels might be better candidates for therapies designed to protect or support the remaining beta cells, since they already have some preserved function.
 
-Finally, the strong link between Deficit and C-peptide supports the idea that C-peptide is a reliable indicator of how severe insulin loss is at the time a child is diagnosed. (Maffeis et al., 2020)
+Finally, the strong link between Deficit and C-peptide supports the idea that C-peptide is a reliable indicator of how severe insulin loss is at the time a child is diagnosed. [@maffeis2020nutrition]
 
 ### Future Questions for Further Research
 
@@ -382,17 +389,7 @@ Considering that the current model explains only about 34% of the variation, wha
 Since our current model uses a log transformation of C-peptide. How would the results change if we modeled the raw (untransformed) C-peptide values?
 
 ## References
-Centers for Disease Control and Prevention. (2025, September 17). FASTSTATS - leading causes of death. Centers for Disease Control and Prevention. https://www.cdc.gov/nchs/fastats/leading-causes-of-death.htm
-    
-Cleveland Clinic. (2025, July 22). C-peptide test: What it is, purpose, procedure & results. https://my.clevelandclinic.org/health/diagnostics/24242-c-peptide-test
 
-KEEL Diabetes Dataset (By KEEL). (n.d.). [Dataset]. https://sci2s.ugr.es/keel/dataset.php?cod=45
-
-Van Rossum, Guido, and Fred L. Drake. 2009. Python 3 Reference Manual. Scotts Valley, CA: CreateSpace.
-
-World Health Organization. (n.d.). Diabetes. https://www.who.int/news-room/fact sheets/detail/diabetes
-
-Novac, C. N., Mihai, D.-A., Boboc, A. A., Platica, C., Nemuc, A., & Radulian, G. (2023). Changes in C-Peptide Values in Children with Type 1 Diabetes—a Three-Year Study. Maedica (Bucureşti), 18(2), 182–189. https://doi.org/10.26574/maedica.2023.18.2.182
-
-Maffeis, C., Tomasselli, F., Tommasi, M., Bresadola, I., Trandev, T., Fornari, E., Marigliano, M., Morandi, A., Olivieri, F., & Piona, C. (2020). Nutrition habits of children and adolescents with type 1 diabetes changed in a 10 years span. Pediatric Diabetes, 21(6), 960–968. https://pubmed.ncbi.nlm.nih.gov/32418262/
+::: {#refs}
+:::
 
