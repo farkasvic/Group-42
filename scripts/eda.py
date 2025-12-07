@@ -31,7 +31,6 @@ def main(cleaned_data, plot_output, table_output):
 
     #target distribution
     sns.histplot(diabetes_df["C_peptide"], kde=True)
-    plt.title("Distribution of C_peptide")
     plot_path = os.path.join(plot_output, "c_peptide_distribution.png")
     plt.savefig(plot_path, dpi=300, bbox_inches="tight")
     plt.close()
@@ -53,7 +52,6 @@ def main(cleaned_data, plot_output, table_output):
     corr = diabetes_df.corr()
     plt.figure(figsize=(6, 4))
     sns.heatmap(corr, annot=True, cmap="coolwarm", center = 0, fmt=".2f")
-    plt.title("Correlation Heatmap")
 
     plot_path = os.path.join(plot_output, "correlation_heatmap.png")
     plt.savefig(plot_path, dpi=300, bbox_inches="tight")
