@@ -2,10 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.7.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-12-06">
 
 <title>Regression Analysis of C-Peptide Dependence on Age and Base Deficit</title>
 <style>
@@ -43,19 +44,18 @@ div.csl-indent {
 }</style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="diabetes-analysis_files/libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="diabetes-analysis_files/libs/clipboard/clipboard.min.js"></script>
 <script src="diabetes-analysis_files/libs/quarto-html/quarto.js" type="module"></script>
 <script src="diabetes-analysis_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="diabetes-analysis_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="diabetes-analysis_files/libs/quarto-html/popper.min.js"></script>
 <script src="diabetes-analysis_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="diabetes-analysis_files/libs/quarto-html/anchor.min.js"></script>
 <link href="diabetes-analysis_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="diabetes-analysis_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="diabetes-analysis_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="diabetes-analysis_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="diabetes-analysis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="diabetes-analysis_files/libs/bootstrap/bootstrap-1e118674f8eeaf0dc11d6faf9a2d8791.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+<link href="diabetes-analysis_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
@@ -73,7 +73,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -119,7 +119,7 @@ window.Quarto = {
   <li><a href="#future-questions-for-further-research" id="toc-future-questions-for-further-research" class="nav-link" data-scroll-target="#future-questions-for-further-research">Future Questions for Further Research</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="diabetes-analysis.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="../diabetes-analysis.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -139,6 +139,12 @@ window.Quarto = {
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 6, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -154,8 +160,8 @@ window.Quarto = {
 </section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Diabetes is a chronic disease in which the body is unable to properly regulate blood sugar. According to the World Health Organization (WHO), more than 830 million people worldwide, around one in ten people, live with diabetes. <span class="citation" data-cites="Diabetes_WHO">Organization (<a href="#ref-Diabetes_WHO" role="doc-biblioref">2024</a>)</span> It is also one of the top ten leading causes of death globally. <span class="citation" data-cites="CDC_2025_FastStats">Disease Control and Prevention (<a href="#ref-CDC_2025_FastStats" role="doc-biblioref">2025</a>)</span></p>
-<p>WHO says: “Diabetes causes blindness, kidney failure, heart attacks, stroke and lower limb amputation […] Neither its cause nor the means to prevent it are known.” <span class="citation" data-cites="Diabetes_WHO">Organization (<a href="#ref-Diabetes_WHO" role="doc-biblioref">2024</a>)</span></p>
+<p>Diabetes is a chronic disease in which the body is unable to properly regulate blood sugar. According to the World Health Organization (WHO), more than 830 million people worldwide, around one in ten people, live with diabetes <span class="citation" data-cites="Diabetes_WHO">(<a href="#ref-Diabetes_WHO" role="doc-biblioref">Organization 2024</a>)</span>. It is also one of the top ten leading causes of death globally <span class="citation" data-cites="CDC_2025_FastStats">(<a href="#ref-CDC_2025_FastStats" role="doc-biblioref">Disease Control and Prevention 2025</a>)</span>.</p>
+<p>WHO says: “Diabetes causes blindness, kidney failure, heart attacks, stroke and lower limb amputation […] Neither its cause nor the means to prevent it are known” <span class="citation" data-cites="Diabetes_WHO">(<a href="#ref-Diabetes_WHO" role="doc-biblioref">Organization 2024</a>)</span>.</p>
 <p>Type 1 diabetes, also called insulin-dependent diabetes, is a more serious form that usually starts in childhood. In Type 1 diabetes, the pancreas stops producing insulin, a hormone that allows sugar to move from the blood into the body’s cells. Without insulin, blood sugar rises to dangerous levels, and people need insulin injections to survive.</p>
 <p>When children are first diagnosed, not all of them have completely lost the ability to produce insulin. Children who retain some natural insulin production have easier time managing the disease. This raises an important question: What factors influence how much insulin a child’s body is still able to produce at diagnosis?</p>
 <p>For this study, we will specifically investigate the factors of age and base deficit. To answer this, we analyzed a dataset containing three measurements taken at or around the time of diagnosis:</p>
@@ -172,22 +178,22 @@ window.Quarto = {
 </section>
 <section id="data-source" class="level2">
 <h2 class="anchored" data-anchor-id="data-source">Data Source:</h2>
-<p>KEEL Diabetes Data Set <span class="citation" data-cites="Diabetes_Dataset">Extraction based on Evolutionary Learning (<a href="#ref-Diabetes_Dataset" role="doc-biblioref">2018</a>)</span></p>
+<p>KEEL Diabetes Data Set: <span class="citation" data-cites="Diabetes_Dataset">Extraction based on Evolutionary Learning (<a href="#ref-Diabetes_Dataset" role="doc-biblioref">2018</a>)</span></p>
 <p>The data was sourced from KEEL (Knowledge Extraction based on Evolutionary Learning), which is an open source software tool containing datasets that can be used for knowledge data discovery. The chosen dataset is designed for regression analysis, taken from LIACC’s repository. The objective of this data is to investigate how factors such as patient age and base deficit (a measure of metabolic acidosis) are associated with concentration of C-peptide, in order to further understand patterns of insulin-resistant Diabetes Mellitus in children.</p>
 </section>
 <section id="data-structure" class="level2">
 <h2 class="anchored" data-anchor-id="data-structure">Data Structure:</h2>
-<p><code>Age</code>: Patient Age, domain: [0.9, 15.6]</p>
-<p><code>Deficit</code>: Base Deficit, measure of acidity, domain: [-29.0, -0.2]</p>
-<p><code>C-peptide</code>: Logarithm of C-Peptide concentration (pmol/ml), domain: [3.0, 6.6]</p>
+<p><code>Age</code>: Patient Age, domain: [np.float64(0.9), np.float64(15.6)]</p>
+<p><code>Deficit</code>: Base Deficit, measure of acidity, domain: [np.float64(-29.0), np.float64(-0.2)]</p>
+<p><code>C-peptide</code>: Logarithm of C-Peptide concentration (pmol/ml), domain: [np.float64(3.0), np.float64(6.6)]</p>
 </section>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
-<p>Multiple linear regression was used to model the relationship of age and base deficit to logarithm of C-peptide concentration in patients. The Python programming language <span class="citation" data-cites="Python3_Ref">Van Rossum and Drake (<a href="#ref-Python3_Ref" role="doc-biblioref">2009</a>)</span> was used to perform the analysis.</p>
+<p>Multiple linear regression was used to model the relationship of age and base deficit to logarithm of C-peptide concentration in patients. The Python programming language <span class="citation" data-cites="Python3_Ref">(<a href="#ref-Python3_Ref" role="doc-biblioref">Van Rossum and Drake 2009</a>)</span> was used to perform the analysis.</p>
 </section>
 <section id="download-data-into-data-directory" class="level2">
 <h2 class="anchored" data-anchor-id="download-data-into-data-directory">Download Data into data/ directory</h2>
-<p>This code was adapted from Microsoft Copilot prompts: ’Use Python to download a data file from a download link into a directory, as a csv</p>
+<p>This code was adapted from Microsoft Copilot prompts: ‘Use Python to download a data file from a download link into a directory, as a csv’.</p>
 </section>
 <section id="data-wrangling-and-cleaning" class="level2">
 <h2 class="anchored" data-anchor-id="data-wrangling-and-cleaning">Data Wrangling and Cleaning</h2>
@@ -241,11 +247,11 @@ memory usage: 1.1 KB</code></pre>
 Table&nbsp;2: Dataset descriptive statistics
 </figcaption>
 <div aria-describedby="tbl-describe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-border="1">
+<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -256,49 +262,49 @@ Table&nbsp;2: Dataset descriptive statistics
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">count</th>
+<td data-quarto-table-cell-role="th">count</td>
 <td>43.000000</td>
 <td>43.000000</td>
 <td>43.000000</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">mean</th>
+<td data-quarto-table-cell-role="th">mean</td>
 <td>9.032558</td>
 <td>-8.148837</td>
 <td>4.746512</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">std</th>
+<td data-quarto-table-cell-role="th">std</td>
 <td>4.022539</td>
 <td>7.123080</td>
 <td>0.720565</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">min</th>
+<td data-quarto-table-cell-role="th">min</td>
 <td>0.900000</td>
 <td>-29.000000</td>
 <td>3.000000</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">25%</th>
+<td data-quarto-table-cell-role="th">25%</td>
 <td>5.500000</td>
 <td>-12.700000</td>
 <td>4.450000</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">50%</th>
+<td data-quarto-table-cell-role="th">50%</td>
 <td>10.400000</td>
 <td>-7.800000</td>
 <td>4.900000</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">75%</th>
+<td data-quarto-table-cell-role="th">75%</td>
 <td>11.850000</td>
 <td>-2.000000</td>
 <td>5.100000</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">max</th>
+<td data-quarto-table-cell-role="th">max</td>
 <td>15.600000</td>
 <td>-0.200000</td>
 <td>6.600000</td>
@@ -312,7 +318,7 @@ Table&nbsp;2: Dataset descriptive statistics
 </figure>
 </div>
 </div>
-<p>The mean patient age is approximately 9 years old, with the maximum age being approximately 16 and the minimum being 1. The C_peptide concentration average is about 4.75, mean Base Deficit value is -8.15 mEq/L. The standard deviation of Base Deficit is quite high, at about 7.12 mEq/L, while the standard deviations of the other two variables are within a reasonable range for their domains. This high variance could be due to the small size of the dataset.</p>
+<p>The mean patient age is approximately 9 years old, with the maximum age being approximately 16 and the minimum being 1. The C_peptide concentration average is about np.float64(4.75), mean Base Deficit value is np.float64(-8.15) mEq/L. The standard deviation of Base Deficit is quite high, at about np.float64(7.12) mEq/L, while the standard deviations of the other two variables are within a reasonable range for their domains. This high variance could be due to the small size of the dataset.</p>
 <div id="fig-dist" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -346,7 +352,7 @@ Figure&nbsp;3: Correlation heatmap of variables
 </section>
 <section id="eda-summary" class="level2">
 <h2 class="anchored" data-anchor-id="eda-summary">EDA Summary:</h2>
-<p>Both features are positively associated with the target variable, <code>C_peptide</code>, at approximately equal magnitudes (0.46, 0.49). The distribution of the target variable is approximately normal, with most values clustered around 5.0. There does seem to be one or two outliers in scatterplots comparing the relationship between <code>Age</code> and <code>Deficit</code>, but as these are both non-target features this can be ignored for the sake of this analysis. There are no obvious outliers in the relationship between the target and its predictors.</p>
+<p>Both features are positively associated with the target variable, <code>C_peptide</code>, at approximately equal magnitudes (np.float64(0.46), np.float64(0.49)). The distribution of the target variable is approximately normal, with most values clustered around 5.0. There does seem to be one or two outliers in scatterplots comparing the relationship between <code>Age</code> and <code>Deficit</code>, but as these are both non-target features this can be ignored for the sake of this analysis. There are no obvious outliers in the relationship between the target and its predictors.</p>
 </section>
 <section id="modelling" class="level2">
 <h2 class="anchored" data-anchor-id="modelling">Modelling</h2>
@@ -358,11 +364,11 @@ Figure&nbsp;3: Correlation heatmap of variables
 Table&nbsp;3: Linear Regression Intercept and Coefficients
 </figcaption>
 <div aria-describedby="tbl-linear_reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="39">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
 
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-border="1">
+<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -380,7 +386,7 @@ Table&nbsp;3: Linear Regression Intercept and Coefficients
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
+<td data-quarto-table-cell-role="th">0</td>
 <td>0</td>
 <td>Intercept</td>
 <td>4.479</td>
@@ -393,7 +399,7 @@ Table&nbsp;3: Linear Regression Intercept and Coefficients
 <td>5.027</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
+<td data-quarto-table-cell-role="th">1</td>
 <td>1</td>
 <td>Age</td>
 <td>0.066</td>
@@ -406,7 +412,7 @@ Table&nbsp;3: Linear Regression Intercept and Coefficients
 <td>0.113</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
+<td data-quarto-table-cell-role="th">2</td>
 <td>2</td>
 <td>Deficit</td>
 <td>0.041</td>
@@ -438,11 +444,11 @@ Table&nbsp;3: Linear Regression Intercept and Coefficients
 Table&nbsp;4: Shapiro-Wilk Test Results
 </figcaption>
 <div aria-describedby="tbl-sharpiro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="40">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
 
-<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-border="1">
+<table class="dataframe do-not-create-environment cell caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -454,7 +460,7 @@ Table&nbsp;4: Shapiro-Wilk Test Results
 </thead>
 <tbody>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
+<td data-quarto-table-cell-role="th">0</td>
 <td>0</td>
 <td>0.988</td>
 <td>0.927</td>
@@ -497,16 +503,16 @@ Figure&nbsp;5: Residuals vs Fitted Values
 <section id="summary-of-findings" class="level2">
 <h2 class="anchored" data-anchor-id="summary-of-findings">Summary of Findings</h2>
 <p>The objective of this analysis was to determine if there is a linear relationship between serum C-peptide (log-transformed concentration, pmol/ml) and the factors of patient age (Age, years) and base deficit (Deficit, mEq/L) in children with insulin-dependent diabetes mellitus.</p>
-<p>A multiple linear regression model yielded the following key findings <a href="#tbl-linear_reg" class="quarto-xref">Table&nbsp;3</a></p>
-<p>Both predictor variables, Age (<span class="math inline">\(p=0.0066\)</span>) and Deficit (<span class="math inline">\(p=0.0034\)</span>), were found to be statistically significant in predicting the C-peptide level (using a typical <span class="math inline">\(\alpha = 0.05\)</span>). Age has a positive coefficient (<span class="math inline">\(\text{coef} = 0.066\)</span>), indicating that for every one-year increase in age, the log C-peptide concentration is expected to increase by 0.066 units, holding Deficit constant. Base deficit has a positive coefficient (<span class="math inline">\(\text{coef} = 0.041\)</span>), meaning that for every one <span class="math inline">\(\text{mEq/L}\)</span> increase in Deficit, the log C-peptide concentration is expected to increase by 0.041 units, holding Age constant. (Note: Since Deficit values are negative, an increase (closer to 0) signifies less severe metabolic acidosis.)</p>
+<p>A multiple linear regression model (<a href="#tbl-linear_reg" class="quarto-xref">Table&nbsp;3</a>) yielded the following key findings:</p>
+<p>Both predictor variables, Age (p = 0.007) and Deficit (p =0.003), were found to be statistically significant in predicting the C-peptide level (using a typical <span class="math inline">\(\alpha = 0.05\)</span>). Age has a positive coefficient (coef =0.066), indicating that for every one-year increase in age, the log C-peptide concentration is expected to increase by 0.066 units, holding Deficit constant. Base deficit has a positive coefficient (coef =0.041), meaning that for every one <span class="math inline">\(\text{mEq/L}\)</span> increase in Deficit, the log C-peptide concentration is expected to increase by 0.041 units, holding Age constant. (Note: Since Deficit values are negative, an increase (closer to 0) signifies less severe metabolic acidosis.)</p>
 <p>The model achieved an adjusted <span class="math inline">\(R^2\)</span> of 0.337. This means that approximately 33.7% of the variance in the log C-peptide concentration is explained by the patient’s age and base deficit.</p>
-<p>When examining model assumptions, the diagnostic tests (<a href="#tbl-sharpiro" class="quarto-xref">Table&nbsp;4</a> <span class="math inline">\(p = 0.927\)</span> and <a href="#fig-qq" class="quarto-xref">Figure&nbsp;4</a> / <a href="#fig-residual" class="quarto-xref">Figure&nbsp;5</a>, shows that the key linear regression assumptions of normally distributed residuals and equal variance are reasonably met. While it is more difficult to confirm whether the observations are independent, we will assume so here for the purposes of our analysis.</p>
+<p>When examining model assumptions, the diagnostic tests <a href="#tbl-sharpiro" class="quarto-xref">Table&nbsp;4</a>, <a href="#fig-qq" class="quarto-xref">Figure&nbsp;4</a>, and <a href="#fig-residual" class="quarto-xref">Figure&nbsp;5</a>, shows that the key linear regression assumptions of normally distributed residuals and equal variance are reasonably met. While it is more difficult to confirm whether the observations are independent, we will assume so here for the purposes of our analysis.</p>
 </section>
 <section id="expected-findings" class="level2">
 <h2 class="anchored" data-anchor-id="expected-findings">Expected Findings</h2>
 <p>The results showing that Age and Base Deficit are both positive predictors of C-peptide levels generally match what we expect in children with Type 1 Diabetes.</p>
 <p>Since C-peptide reflects how much insulin the body can still produce, the positive relationship with age suggests that older children in this dataset tend to have more remaining beta-cell function at the time of measurement. This is reasonable because some older children may lose beta-cells more slowly, or may still be in an early stage of the disease when some insulin production is preserved.</p>
-<p>The positive effect of base deficit here means that higher C-peptide levels are linked to a less severe Deficit (meaning a less severe case of DKA). This fits existing medical understanding: children who still produce some insulin are less likely to arrive with very severe metabolic disturbances compared to those whose beta-cells are almost fully destroyed. <span class="citation" data-cites="Changes_in_C-Peptide">Novac (<a href="#ref-Changes_in_C-Peptide" role="doc-biblioref">2023</a>)</span> The one surprising part of the results is the low R² value (0.337). Even though the model is statistically significant, it explains only a portion of the differences in C-peptide levels. This suggests that other factors, such as how long the child has had symptoms, their genetic markers, autoantibody levels, or initial glucose and HbA1c—also play important roles and should be included in future analyses.</p>
+<p>The positive effect of base deficit here means that higher C-peptide levels are linked to a less severe Deficit (meaning a less severe case of DKA). This fits existing medical understanding: children who still produce some insulin are less likely to arrive with very severe metabolic disturbances compared to those whose beta-cells are almost fully destroyed <span class="citation" data-cites="Changes_in_C-Peptide">(<a href="#ref-Changes_in_C-Peptide" role="doc-biblioref">Novac 2023</a>)</span>. The one surprising part of the results is the low R² value (0.337). Even though the model is statistically significant, it explains only a portion of the differences in C-peptide levels. This suggests that other factors, such as how long the child has had symptoms, their genetic markers, autoantibody levels, or initial glucose and HbA1c—also play important roles and should be included in future analyses.</p>
 </section>
 <section id="impact-of-findings" class="level2">
 <h2 class="anchored" data-anchor-id="impact-of-findings">Impact of Findings</h2>
@@ -514,7 +520,7 @@ Figure&nbsp;5: Residuals vs Fitted Values
 <p>One is prognostic value: Because C-peptide is a strong indicator of long-term diabetes outcomes (such as the risk of low blood sugar and future complications), this analysis suggests that a child’s Age and Deficit at diagnosis can serve as easy-to-use markers for predicting how well they might manage the disease over time.</p>
 <p>The findings also show that the onset of Type 1 diabetes is not the same for all children. Those who are a bit older and arrive with less severe metabolic problems (a less negative Deficit) appear to belong to a group that still has better remaining insulin-producing ability.</p>
 <p>Knowing how Age and Deficit relate to C-peptide can help doctors tailor treatments more effectively. For example, children with higher predicted C-peptide levels might be better candidates for therapies designed to protect or support the remaining beta cells, since they already have some preserved function.</p>
-<p>Finally, the strong link between Deficit and C-peptide supports the idea that C-peptide is a reliable indicator of how severe insulin loss is at the time a child is diagnosed. <span class="citation" data-cites="Nutrition_habits_of_children">Maffeis (<a href="#ref-Nutrition_habits_of_children" role="doc-biblioref">2020</a>)</span></p>
+<p>Finally, the strong link between Deficit and C-peptide supports the idea that C-peptide is a reliable indicator of how severe insulin loss is at the time a child is diagnosed <span class="citation" data-cites="Nutrition_habits_of_children">(<a href="#ref-Nutrition_habits_of_children" role="doc-biblioref">Maffeis 2020</a>)</span>.</p>
 </section>
 <section id="future-questions-for-further-research" class="level2">
 <h2 class="anchored" data-anchor-id="future-questions-for-further-research">Future Questions for Further Research</h2>
@@ -603,14 +609,13 @@ Van Rossum, Guido, and Fred L. Drake. 2009. <span>“Python 3 Reference Manual.�
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -1,6 +1,7 @@
 ---
 title: "Regression Analysis of C-Peptide Dependence on Age and Base Deficit"
 authors: "Julia Zhang, Jennifer Onyebuchi, Victoria Farkas & Michael Kmetiuk"
+date: today
 format:
   html:
     toc: true
@@ -27,9 +28,9 @@ This study analyzes a dataset of children who were recently diagnosed with Type 
 
 ## Introduction
 
-Diabetes is a chronic disease in which the body is unable to properly regulate blood sugar. According to the World Health Organization (WHO), more than 830 million people worldwide, around one in ten people, live with diabetes. @Diabetes_WHO It is also one of the top ten leading causes of death globally. @CDC_2025_FastStats
+Diabetes is a chronic disease in which the body is unable to properly regulate blood sugar. According to the World Health Organization (WHO), more than 830 million people worldwide, around one in ten people, live with diabetes [@Diabetes_WHO]. It is also one of the top ten leading causes of death globally [@CDC_2025_FastStats].
 
-WHO says: “Diabetes causes blindness, kidney failure, heart attacks, stroke and lower limb amputation \[…\] Neither its cause nor the means to prevent it are known.” @Diabetes_WHO
+WHO says: “Diabetes causes blindness, kidney failure, heart attacks, stroke and lower limb amputation \[…\] Neither its cause nor the means to prevent it are known” [@Diabetes_WHO].
 
 Type 1 diabetes, also called insulin-dependent diabetes, is a more serious form that usually starts in childhood. In Type 1 diabetes, the pancreas stops producing insulin, a hormone that allows sugar to move from the blood into the body’s cells. Without insulin, blood sugar rises to dangerous levels, and people need insulin injections to survive.
 
@@ -49,7 +50,7 @@ When studying patterns of insulin-dependent diabetes mellitus in children, is th
 
 ## Data Source:
 
-KEEL Diabetes Data Set @Diabetes_Dataset
+KEEL Diabetes Data Set: @Diabetes_Dataset
 
 The data was sourced from KEEL (Knowledge Extraction based on Evolutionary Learning), which is an open source software tool containing datasets that can be used for knowledge data discovery. The chosen dataset is designed for regression analysis, taken from LIACC's repository. The objective of this data is to investigate how factors such as patient age and base deficit (a measure of metabolic acidosis) are associated with concentration of C-peptide, in order to further understand patterns of insulin-resistant Diabetes Mellitus in children.
 
@@ -64,11 +65,11 @@ The data was sourced from KEEL (Knowledge Extraction based on Evolutionary Learn
 
 ## Methods
 
-Multiple linear regression was used to model the relationship of age and base deficit to logarithm of C-peptide concentration in patients. The Python programming language @Python3_Ref was used to perform the analysis.
+Multiple linear regression was used to model the relationship of age and base deficit to logarithm of C-peptide concentration in patients. The Python programming language [@Python3_Ref] was used to perform the analysis.
 
 ## Download Data into data/ directory
 
-This code was adapted from Microsoft Copilot prompts: 'Use Python to download a data file from a download link into a directory, as a csv
+This code was adapted from Microsoft Copilot prompts: 'Use Python to download a data file from a download link into a directory, as a csv'.
 
 ## Data Wrangling and Cleaning
 
@@ -155,13 +156,13 @@ To test for equal variance, we plot the residuals against the fitted values for 
 
 The objective of this analysis was to determine if there is a linear relationship between serum C-peptide (log-transformed concentration, pmol/ml) and the factors of patient age (Age, years) and base deficit (Deficit, mEq/L) in children with insulin-dependent diabetes mellitus.
 
-A multiple linear regression model yielded the following key findings @tbl-linear_reg
+A multiple linear regression model (@tbl-linear_reg) yielded the following key findings:
 
-Both predictor variables, Age ($p=0.0066$) and Deficit ($p=0.0034$), were found to be statistically significant in predicting the C-peptide level (using a typical $\alpha = 0.05$). Age has a positive coefficient ($\text{coef} = 0.066$), indicating that for every one-year increase in age, the log C-peptide concentration is expected to increase by 0.066 units, holding Deficit constant. Base deficit has a positive coefficient ($\text{coef} = 0.041$), meaning that for every one $\text{mEq/L}$ increase in Deficit, the log C-peptide concentration is expected to increase by 0.041 units, holding Age constant. (Note: Since Deficit values are negative, an increase (closer to 0) signifies less severe metabolic acidosis.)
+Both predictor variables, Age (`{python} f"p = {float(linear_reg[linear_reg["names"] == "Age"]["pval"])}"`) and Deficit (`{python} f"p ={float(linear_reg[linear_reg["names"] == "Deficit"]["pval"])}"`), were found to be statistically significant in predicting the C-peptide level (using a typical $\alpha = 0.05$). Age has a positive coefficient (`{python} f"coef ={float(linear_reg[linear_reg["names"] == "Age"]["coef"])}"`), indicating that for every one-year increase in age, the log C-peptide concentration is expected to increase by `{python} f"{float(linear_reg[linear_reg["names"] == "Age"]["coef"])}"` units, holding Deficit constant. Base deficit has a positive coefficient (`{python} f"coef ={float(linear_reg[linear_reg["names"] == "Deficit"]["coef"])}"`), meaning that for every one $\text{mEq/L}$ increase in Deficit, the log C-peptide concentration is expected to increase by `{python} f"{float(linear_reg[linear_reg["names"] == "Deficit"]["coef"])}"` units, holding Age constant. (Note: Since Deficit values are negative, an increase (closer to 0) signifies less severe metabolic acidosis.)
 
-The model achieved an adjusted $R^2$ of 0.337. This means that approximately 33.7% of the variance in the log C-peptide concentration is explained by the patient's age and base deficit.
+The model achieved an adjusted $R^2$ of `{python} f"{linear_reg["adj_r2"][0]}"`. This means that approximately `{python} f"{linear_reg["adj_r2"][0]*100}%"` of the variance in the log C-peptide concentration is explained by the patient's age and base deficit.
 
-When examining model assumptions, the diagnostic tests (@tbl-sharpiro $p = 0.927$ and @fig-qq / @fig-residual, shows that the key linear regression assumptions of normally distributed residuals and equal variance are reasonably met. While it is more difficult to confirm whether the observations are independent, we will assume so here for the purposes of our analysis.
+When examining model assumptions, the diagnostic tests @tbl-sharpiro, @fig-qq, and @fig-residual, shows that the key linear regression assumptions of normally distributed residuals and equal variance are reasonably met. While it is more difficult to confirm whether the observations are independent, we will assume so here for the purposes of our analysis.
 
 ## Expected Findings
 
@@ -169,8 +170,8 @@ The results showing that Age and Base Deficit are both positive predictors of C-
 
 Since C-peptide reflects how much insulin the body can still produce, the positive relationship with age suggests that older children in this dataset tend to have more remaining beta-cell function at the time of measurement. This is reasonable because some older children may lose beta-cells more slowly, or may still be in an early stage of the disease when some insulin production is preserved.
 
-The positive effect of base deficit here means that higher C-peptide levels are linked to a less severe Deficit (meaning a less severe case of DKA). This fits existing medical understanding: children who still produce some insulin are less likely to arrive with very severe metabolic disturbances compared to those whose beta-cells are almost fully destroyed. @Changes_in_C-Peptide
-The one surprising part of the results is the low R² value (0.337). Even though the model is statistically significant, it explains only a portion of the differences in C-peptide levels. This suggests that other factors, such as how long the child has had symptoms, their genetic markers, autoantibody levels, or initial glucose and HbA1c—also play important roles and should be included in future analyses.
+The positive effect of base deficit here means that higher C-peptide levels are linked to a less severe Deficit (meaning a less severe case of DKA). This fits existing medical understanding: children who still produce some insulin are less likely to arrive with very severe metabolic disturbances compared to those whose beta-cells are almost fully destroyed [@Changes_in_C-Peptide].
+The one surprising part of the results is the low R² value (`{python} f"{linear_reg["adj_r2"][0]}"`). Even though the model is statistically significant, it explains only a portion of the differences in C-peptide levels. This suggests that other factors, such as how long the child has had symptoms, their genetic markers, autoantibody levels, or initial glucose and HbA1c—also play important roles and should be included in future analyses.
 
 ## Impact of Findings
 
@@ -182,7 +183,7 @@ The findings also show that the onset of Type 1 diabetes is not the same for all
 
 Knowing how Age and Deficit relate to C-peptide can help doctors tailor treatments more effectively. For example, children with higher predicted C-peptide levels might be better candidates for therapies designed to protect or support the remaining beta cells, since they already have some preserved function.
 
-Finally, the strong link between Deficit and C-peptide supports the idea that C-peptide is a reliable indicator of how severe insulin loss is at the time a child is diagnosed.   @Nutrition_habits_of_children
+Finally, the strong link between Deficit and C-peptide supports the idea that C-peptide is a reliable indicator of how severe insulin loss is at the time a child is diagnosed [@Nutrition_habits_of_children].
 
 ## Future Questions for Further Research
 
