@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="diabetes-analysis_files/libs/clipboard/clipboard.min.js"></script>
@@ -94,6 +114,7 @@ window.Quarto = {
   <li><a href="#model-diagnostics" id="toc-model-diagnostics" class="nav-link" data-scroll-target="#model-diagnostics">Model Diagnostics</a></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">DISCUSSION</a></li>
   <li><a href="#summary-of-findings" id="toc-summary-of-findings" class="nav-link" data-scroll-target="#summary-of-findings">Summary of Findings</a></li>
+  <li><a href="#expected-findings" id="toc-expected-findings" class="nav-link" data-scroll-target="#expected-findings">Expected Findings</a></li>
   <li><a href="#impact-of-findings" id="toc-impact-of-findings" class="nav-link" data-scroll-target="#impact-of-findings">Impact of Findings</a></li>
   <li><a href="#future-questions-for-further-research" id="toc-future-questions-for-further-research" class="nav-link" data-scroll-target="#future-questions-for-further-research">Future Questions for Further Research</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -133,8 +154,8 @@ window.Quarto = {
 </section>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Diabetes is a chronic disease in which the body is unable to properly regulate blood sugar. According to the World Health Organization (WHO), more than 830 million people worldwide, around one in ten people, live with diabetes (2024). It is also one of the top ten leading causes of death globally (CDC, 2023).</p>
-<p>WHO says: “Diabetes causes blindness, kidney failure, heart attacks, stroke and lower limb amputation […] Neither its cause nor the means to prevent it are known.” (2024)</p>
+<p>Diabetes is a chronic disease in which the body is unable to properly regulate blood sugar. According to the World Health Organization (WHO), more than 830 million people worldwide, around one in ten people, live with diabetes. <span class="citation" data-cites="Diabetes_WHO">Organization (<a href="#ref-Diabetes_WHO" role="doc-biblioref">2024</a>)</span> It is also one of the top ten leading causes of death globally. <span class="citation" data-cites="CDC_2025_FastStats">Disease Control and Prevention (<a href="#ref-CDC_2025_FastStats" role="doc-biblioref">2025</a>)</span></p>
+<p>WHO says: “Diabetes causes blindness, kidney failure, heart attacks, stroke and lower limb amputation […] Neither its cause nor the means to prevent it are known.” <span class="citation" data-cites="Diabetes_WHO">Organization (<a href="#ref-Diabetes_WHO" role="doc-biblioref">2024</a>)</span></p>
 <p>Type 1 diabetes, also called insulin-dependent diabetes, is a more serious form that usually starts in childhood. In Type 1 diabetes, the pancreas stops producing insulin, a hormone that allows sugar to move from the blood into the body’s cells. Without insulin, blood sugar rises to dangerous levels, and people need insulin injections to survive.</p>
 <p>When children are first diagnosed, not all of them have completely lost the ability to produce insulin. Children who retain some natural insulin production have easier time managing the disease. This raises an important question: What factors influence how much insulin a child’s body is still able to produce at diagnosis?</p>
 <p>For this study, we will specifically investigate the factors of age and base deficit. To answer this, we analyzed a dataset containing three measurements taken at or around the time of diagnosis:</p>
@@ -151,7 +172,7 @@ window.Quarto = {
 </section>
 <section id="data-source" class="level2">
 <h2 class="anchored" data-anchor-id="data-source">Data Source:</h2>
-<p>KEEL Diabetes Data Set</p>
+<p>KEEL Diabetes Data Set <span class="citation" data-cites="Diabetes_Dataset">Extraction based on Evolutionary Learning (<a href="#ref-Diabetes_Dataset" role="doc-biblioref">2018</a>)</span></p>
 <p>The data was sourced from KEEL (Knowledge Extraction based on Evolutionary Learning), which is an open source software tool containing datasets that can be used for knowledge data discovery. The chosen dataset is designed for regression analysis, taken from LIACC’s repository. The objective of this data is to investigate how factors such as patient age and base deficit (a measure of metabolic acidosis) are associated with concentration of C-peptide, in order to further understand patterns of insulin-resistant Diabetes Mellitus in children.</p>
 </section>
 <section id="data-structure" class="level2">
@@ -162,7 +183,7 @@ window.Quarto = {
 </section>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
-<p>Multiple linear regression was used to model the relationship of age and base deficit to logarithm of C-peptide concentration in patients. The Python programming language (Van Rossum and Drake 2009) was used to perform the analysis.</p>
+<p>Multiple linear regression was used to model the relationship of age and base deficit to logarithm of C-peptide concentration in patients. The Python programming language <span class="citation" data-cites="Python3_Ref">Van Rossum and Drake (<a href="#ref-Python3_Ref" role="doc-biblioref">2009</a>)</span> was used to perform the analysis.</p>
 </section>
 <section id="download-data-into-data-directory" class="level2">
 <h2 class="anchored" data-anchor-id="download-data-into-data-directory">Download Data into data/ directory</h2>
@@ -220,7 +241,7 @@ memory usage: 1.1 KB</code></pre>
 Table&nbsp;2: Dataset descriptive statistics
 </figcaption>
 <div aria-describedby="tbl-describe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="38">
 <div>
 
 
@@ -337,7 +358,7 @@ Figure&nbsp;3: Correlation heatmap of variables
 Table&nbsp;3: Linear Regression Intercept and Coefficients
 </figcaption>
 <div aria-describedby="tbl-linear_reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="39">
 <div>
 
 
@@ -417,7 +438,7 @@ Table&nbsp;3: Linear Regression Intercept and Coefficients
 Table&nbsp;4: Shapiro-Wilk Test Results
 </figcaption>
 <div aria-describedby="tbl-sharpiro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell-output cell-output-display" data-execution_count="40">
 <div>
 
 
@@ -476,17 +497,16 @@ Figure&nbsp;5: Residuals vs Fitted Values
 <section id="summary-of-findings" class="level2">
 <h2 class="anchored" data-anchor-id="summary-of-findings">Summary of Findings</h2>
 <p>The objective of this analysis was to determine if there is a linear relationship between serum C-peptide (log-transformed concentration, pmol/ml) and the factors of patient age (Age, years) and base deficit (Deficit, mEq/L) in children with insulin-dependent diabetes mellitus.</p>
-<p>A multiple linear regression model yielded the following key findings (Figure 6):</p>
+<p>A multiple linear regression model yielded the following key findings <a href="#tbl-linear_reg" class="quarto-xref">Table&nbsp;3</a></p>
 <p>Both predictor variables, Age (<span class="math inline">\(p=0.0066\)</span>) and Deficit (<span class="math inline">\(p=0.0034\)</span>), were found to be statistically significant in predicting the C-peptide level (using a typical <span class="math inline">\(\alpha = 0.05\)</span>). Age has a positive coefficient (<span class="math inline">\(\text{coef} = 0.066\)</span>), indicating that for every one-year increase in age, the log C-peptide concentration is expected to increase by 0.066 units, holding Deficit constant. Base deficit has a positive coefficient (<span class="math inline">\(\text{coef} = 0.041\)</span>), meaning that for every one <span class="math inline">\(\text{mEq/L}\)</span> increase in Deficit, the log C-peptide concentration is expected to increase by 0.041 units, holding Age constant. (Note: Since Deficit values are negative, an increase (closer to 0) signifies less severe metabolic acidosis.)</p>
 <p>The model achieved an adjusted <span class="math inline">\(R^2\)</span> of 0.337. This means that approximately 33.7% of the variance in the log C-peptide concentration is explained by the patient’s age and base deficit.</p>
-<p>When examining model assumptions, the diagnostic tests (Shapiro-Wilk <span class="math inline">\(p = 0.927\)</span> and Q-Q plot/Residuals vs.&nbsp;Fitted plot, Figures 7-9) shows that the key linear regression assumptions of normally distributed residuals and equal variance are reasonably met. While it is more difficult to confirm whether the observations are independent, we will assume so here for the purposes of our analysis.</p>
-<section id="expected-findings" class="level3">
-<h3 class="anchored" data-anchor-id="expected-findings">Expected Findings</h3>
+<p>When examining model assumptions, the diagnostic tests (<a href="#tbl-sharpiro" class="quarto-xref">Table&nbsp;4</a> <span class="math inline">\(p = 0.927\)</span> and <a href="#fig-qq" class="quarto-xref">Figure&nbsp;4</a> / <a href="#fig-residual" class="quarto-xref">Figure&nbsp;5</a>, shows that the key linear regression assumptions of normally distributed residuals and equal variance are reasonably met. While it is more difficult to confirm whether the observations are independent, we will assume so here for the purposes of our analysis.</p>
+</section>
+<section id="expected-findings" class="level2">
+<h2 class="anchored" data-anchor-id="expected-findings">Expected Findings</h2>
 <p>The results showing that Age and Base Deficit are both positive predictors of C-peptide levels generally match what we expect in children with Type 1 Diabetes.</p>
 <p>Since C-peptide reflects how much insulin the body can still produce, the positive relationship with age suggests that older children in this dataset tend to have more remaining beta-cell function at the time of measurement. This is reasonable because some older children may lose beta-cells more slowly, or may still be in an early stage of the disease when some insulin production is preserved.</p>
-<p>The positive effect of base deficit here means that higher C-peptide levels are linked to a less severe Deficit (meaning a less severe case of DKA). This fits existing medical understanding: children who still produce some insulin are less likely to arrive with very severe metabolic disturbances compared to those whose beta-cells are almost fully destroyed. (Novac et al., 2023)</p>
-<p>The one surprising part of the results is the low R² value (0.337). Even though the model is statistically significant, it explains only a portion of the differences in C-peptide levels. This suggests that other factors, such as how long the child has had symptoms, their genetic markers, autoantibody levels, or initial glucose and HbA1c—also play important roles and should be included in future analyses.</p>
-</section>
+<p>The positive effect of base deficit here means that higher C-peptide levels are linked to a less severe Deficit (meaning a less severe case of DKA). This fits existing medical understanding: children who still produce some insulin are less likely to arrive with very severe metabolic disturbances compared to those whose beta-cells are almost fully destroyed. <span class="citation" data-cites="Changes_in_C-Peptide">Novac (<a href="#ref-Changes_in_C-Peptide" role="doc-biblioref">2023</a>)</span> The one surprising part of the results is the low R² value (0.337). Even though the model is statistically significant, it explains only a portion of the differences in C-peptide levels. This suggests that other factors, such as how long the child has had symptoms, their genetic markers, autoantibody levels, or initial glucose and HbA1c—also play important roles and should be included in future analyses.</p>
 </section>
 <section id="impact-of-findings" class="level2">
 <h2 class="anchored" data-anchor-id="impact-of-findings">Impact of Findings</h2>
@@ -494,7 +514,7 @@ Figure&nbsp;5: Residuals vs Fitted Values
 <p>One is prognostic value: Because C-peptide is a strong indicator of long-term diabetes outcomes (such as the risk of low blood sugar and future complications), this analysis suggests that a child’s Age and Deficit at diagnosis can serve as easy-to-use markers for predicting how well they might manage the disease over time.</p>
 <p>The findings also show that the onset of Type 1 diabetes is not the same for all children. Those who are a bit older and arrive with less severe metabolic problems (a less negative Deficit) appear to belong to a group that still has better remaining insulin-producing ability.</p>
 <p>Knowing how Age and Deficit relate to C-peptide can help doctors tailor treatments more effectively. For example, children with higher predicted C-peptide levels might be better candidates for therapies designed to protect or support the remaining beta cells, since they already have some preserved function.</p>
-<p>Finally, the strong link between Deficit and C-peptide supports the idea that C-peptide is a reliable indicator of how severe insulin loss is at the time a child is diagnosed. (Maffeis et al., 2020)</p>
+<p>Finally, the strong link between Deficit and C-peptide supports the idea that C-peptide is a reliable indicator of how severe insulin loss is at the time a child is diagnosed. <span class="citation" data-cites="Nutrition_habits_of_children">Maffeis (<a href="#ref-Nutrition_habits_of_children" role="doc-biblioref">2020</a>)</span></p>
 </section>
 <section id="future-questions-for-further-research" class="level2">
 <h2 class="anchored" data-anchor-id="future-questions-for-further-research">Future Questions for Further Research</h2>
@@ -506,18 +526,31 @@ Figure&nbsp;5: Residuals vs Fitted Values
 <li><p><strong>Effect of Transformations:</strong> Since our current model uses a log transformation of C-peptide. How would the results change if we modeled the raw (untransformed) C-peptide values?</p></li>
 </ol>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<p>Centers for Disease Control and Prevention. (2025, September 17). FASTSTATS - leading causes of death. Centers for Disease Control and Prevention. https://www.cdc.gov/nchs/fastats/leading-causes-of-death.htm</p>
-<p>Cleveland Clinic. (2025, July 22). C-peptide test: What it is, purpose, procedure &amp; results. https://my.clevelandclinic.org/health/diagnostics/24242-c-peptide-test</p>
-<p>KEEL Diabetes Dataset (By KEEL). (n.d.). [Dataset]. https://sci2s.ugr.es/keel/dataset.php?cod=45</p>
-<p>Van Rossum, Guido, and Fred L. Drake. 2009. Python 3 Reference Manual. Scotts Valley, CA: CreateSpace.</p>
-<p>World Health Organization. (n.d.). Diabetes. https://www.who.int/news-room/fact sheets/detail/diabetes</p>
-<p>Novac, C. N., Mihai, D.-A., Boboc, A. A., Platica, C., Nemuc, A., &amp; Radulian, G. (2023). Changes in C-Peptide Values in Children with Type 1 Diabetes—a Three-Year Study. Maedica (Bucureşti), 18(2), 182–189. https://doi.org/10.26574/maedica.2023.18.2.182</p>
-<p>Maffeis, C., Tomasselli, F., Tommasi, M., Bresadola, I., Trandev, T., Fornari, E., Marigliano, M., Morandi, A., Olivieri, F., &amp; Piona, C. (2020). Nutrition habits of children and adolescents with type 1 diabetes changed in a 10 years span. Pediatric Diabetes, 21(6), 960–968. https://pubmed.ncbi.nlm.nih.gov/32418262/</p>
+<section id="references" class="level2 unnumbered">
+
+
 </section>
 
-</main>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-CDC_2025_FastStats" class="csl-entry" role="listitem">
+Disease Control, Centers for, and Prevention. 2025. <span>“FASTSTATS - Leading Causes of Death.”</span> Centers for Disease Control and Prevention. <a href="https://www.cdc.gov/nchs/fastats/leading-causes-of-death.htm">https://www.cdc.gov/nchs/fastats/leading-causes-of-death.htm</a>.
+</div>
+<div id="ref-Diabetes_Dataset" class="csl-entry" role="listitem">
+Extraction based on Evolutionary Learning, KEEL (Knowledge. 2018. <span>“FASTSTATS - Leading Causes of Death.”</span> Knowledge Extraction based on Evolutionary Learning KEEL. <a href="https://sci2s.ugr.es/keel/dataset.php?cod=45">https://sci2s.ugr.es/keel/dataset.php?cod=45</a>.
+</div>
+<div id="ref-Nutrition_habits_of_children" class="csl-entry" role="listitem">
+Maffeis, Tomasselli, C. 2020. <span>“Nutrition Habits of Children and Adolescents with Type 1 Diabetes Changed in a 10 Years Span.”</span> Pediatric Diabetes. <a href="https://pubmed.ncbi.nlm.nih.gov/32418262/">https://pubmed.ncbi.nlm.nih.gov/32418262/</a>.
+</div>
+<div id="ref-Changes_in_C-Peptide" class="csl-entry" role="listitem">
+Novac, Mihai, C. N. 2023. <span>“Changes in c-Peptide Values in Children with Type 1 Diabetes—a Three-Year Study.”</span> National Institurte of Health. <a href="https://doi.org/10.26574/maedica.2023.18.2.182">https://doi.org/10.26574/maedica.2023.18.2.182</a>.
+</div>
+<div id="ref-Diabetes_WHO" class="csl-entry" role="listitem">
+Organization, World Health. 2024. <span>“Diabetes.”</span> Centers for Disease Control and Prevention. <a href="https://www.who.int/news-room/fact sheets/detail/diabetes">https://www.who.int/news-room/fact sheets/detail/diabetes</a>.
+</div>
+<div id="ref-Python3_Ref" class="csl-entry" role="listitem">
+Van Rossum, Guido, and Fred L. Drake. 2009. <span>“Python 3 Reference Manual.”</span> CreateSpace.
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
