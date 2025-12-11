@@ -1,3 +1,12 @@
+"""
+Data Validation script.
+
+Checks the dataset schema, ranges, and uses the deepchecks data validation suite to run full data
+integrity checks. Also checks the file is named correctly and uses the correct format (.csv).
+
+"""
+
+
 
 import os
 import pandas as pd

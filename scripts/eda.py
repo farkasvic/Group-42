@@ -1,3 +1,14 @@
+"""
+EDA Script.
+
+Creates plots assessing various distributions and relationships in the cleaned dataset, saves the plots to the
+results/figures/ directory.
+
+"""
+
+
+
+
 import click
 import os
 import pandas as pd

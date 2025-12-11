@@ -1,5 +1,5 @@
 """
-Script to download and extract diabetes dataset from a remote URL.
+Script to download and extract diabetes dataset from a remote URL, as a zipfile, reads it into the data/raw directory.
 """
 import click
 import os

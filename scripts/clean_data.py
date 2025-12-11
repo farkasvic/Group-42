@@ -1,3 +1,12 @@
+"""
+Data Cleaning script.
+
+Reads in the .dat file from the data/raw directory, splits by comma delimiter, renames columns, 
+converts to proper datatypes, and saves as CSV into data/processed.
+  
+"""
+
+
 import pandas as pd
 import os
 import click
@@ -23,12 +32,7 @@ import click
 )
 
 def main(input_path, output_dir, output_file):
-    """
-    Clean and process raw diabetes data.
-    
-    Reads the .dat file, filters metadata lines, splits by comma delimiter,
-    renames columns, converts to proper data types, and saves as CSV.
-    """
+
     if not os.path.exists(input_path):
         raise FileNotFoundError(f"Input file not found: {input_path}")
     
