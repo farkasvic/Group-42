@@ -35,13 +35,14 @@ If using Windows or Mac, make sure that Docker Desktop is running.
 make run
 ```
 
-2. In the same terminal, enter following command to rerun the analysis and generate the new report:
+2. In the same terminal, enter following commands to remove all previously generated files and rerun the analysis:
 
 ``` 
-make files
+make clean
+make all
 ```
 
-4. To stop running the Docker container and clean up the resources, enter the following commands:
+3. To stop running the Docker container and clean up the resources, enter the following commands:
 
 ``` 
 exit
@@ -61,7 +62,7 @@ make stop
 2. Run the following command to update the `conda-lock.yml` file and re-build the Docker image locally and ensure it runs properly:
 
 ``` 
-make all
+make build
 ```
 
 3. Push the changes to GitHub. A new Docker image will be built and pushed to Docker Hub automatically. It will be tagged with the `latest`.
