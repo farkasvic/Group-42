@@ -3,6 +3,10 @@ Script to download and extract diabetes dataset from a remote URL, as a zipfile,
 """
 import click
 import os
+import sys
+
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+
 from src.read_zipfile import read_zipfile
 
 @click.command()
