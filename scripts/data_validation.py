@@ -11,11 +11,14 @@ integrity checks. Also checks the file is named correctly and uses the correct f
 import os
 import pandas as pd
 import pandera as pa
+import sys
 import click
 
 from pandera import Column, DataFrameSchema, Check
 from deepchecks.tabular import Dataset
 from deepchecks.tabular.suites import data_integrity
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from src.check_csv import check_csv
 
 import warnings
 warnings.filterwarnings("ignore", category=FutureWarning)
@@ -59,17 +62,15 @@ schema_ranges = DataFrameSchema(
 
 
 def main(cleaned_data):
+    correct_filename = "clean_diabetes.csv"
+    correct_extension = ".csv"
 
     try:
-        actual_filename = os.path.basename(cleaned_data)
-        actual_extension = os.path.splitext(actual_filename)[1]
-        
-        assert actual_filename == "clean_diabetes.csv", \
-            f"Expected filename 'clean_diabetes.csv', but got '{actual_filename}'"
-        
-        assert actual_extension == ".csv", \
-            f"Expected file extension '.csv', but got '{actual_extension}'"
-        
+        check_csv(
+            filepath=cleaned_data,
+            expected_filename=correct_filename, 
+            expected_extension=correct_extension
+        )
         print("✅ File format and name validation passed.")
     except AssertionError as e:
         print(f"❌ File validation failed: {e}")
