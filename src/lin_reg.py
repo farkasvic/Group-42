@@ -32,6 +32,12 @@ def lin_reg(csv, target, model_dir, model_name, table_dir, table_name):
     None
 
     """
+
+    if not model_name.endswith('.pickle'):
+        raise ValueError("model_name must end with .pickle")
+
+    if not table_name.endswith('.csv'):
+        raise ValueError("table_name must end with .csv")
     
     df = pd.read_csv(csv)
 

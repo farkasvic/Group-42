@@ -23,7 +23,12 @@ Additional dependencies are specified in the [`Dockerfile`](Dockerfile).
 ### First Time Setup
 
 1. [Install](https://www.docker.com/get-started/) and launch Docker on your computer.
-2. Clone this GitHub repository.
+2. Clone this GitHub repository and navigate to the project folder using the following commands:
+
+```
+git clone https://github.com/farkasvic/CPeptide-Diabetes-Regression-Group-42.git
+cd CPeptide-Diabetes-Regression-Group-42
+```
 
 ### Running the Analysis
 
