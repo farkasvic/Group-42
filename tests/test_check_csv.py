@@ -52,3 +52,34 @@ def test_file_without_extension():
     finally:
         if os.path.exists(temp_path):
             os.remove(temp_path)
+
+# testing for abnormal / error use cases
+
+def test_wrong_filename(test_data_dir):
+    """Test that function raises AssertionError when filename doesn't match."""
+    filepath = os.path.join(test_data_dir, 'clean_diabetes.csv')
+    with pytest.raises(AssertionError, match="Expected filename 'wrong_name.csv'"):
+        check_csv(filepath, 'wrong_name.csv', '.csv')
+
+def test_wrong_extension(test_data_dir):
+    """Test that function raises AssertionError when extension doesn't match."""
+    filepath = os.path.join(test_data_dir, 'clean_diabetes.csv')
+    with pytest.raises(AssertionError, match="Expected file extension '.txt'"):
+        check_csv(filepath, 'clean_diabetes.csv', '.txt')
+
+def test_both_filename_and_extension_wrong(test_data_dir):
+    """Test with both filename and extension incorrect."""
+    filepath = os.path.join(test_data_dir, 'clean_diabetes.csv')
+    with pytest.raises(AssertionError, match="Expected filename"):
+        check_csv(filepath, 'wrong_file.txt', '.txt')
+
+def test_empty_string_filepath():
+    """Test with empty string as filepath."""
+    with pytest.raises(AssertionError):
+        check_csv('', 'file.csv', '.csv')
+
+def test_case_sensitivity_filename(test_data_dir):
+    """Test case sensitivity for filename validation."""
+    filepath = os.path.join(test_data_dir, 'clean_diabetes.csv')
+    with pytest.raises(AssertionError, match="Expected filename 'Clean_Diabetes.csv'"):
+        check_csv(filepath, 'Clean_Diabetes.csv', '.csv')
