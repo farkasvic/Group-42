@@ -87,11 +87,7 @@ def main(cleaned_data):
 
 
     try:
-        # Deepchecks validation
-        ds_diabetes = Dataset(diabetes_df, label="C_peptide", cat_features=[])
-        suite = data_integrity()
-        suite.run(ds_diabetes)  # just run, no HTML output
-
+        run_deepchecks_integrity(diabetes_df, label="C_peptide")
         print("✅ Data validation suite passed.")
     except Exception as e:
         print(f"Data validation failed: {e}")
