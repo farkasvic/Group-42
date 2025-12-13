@@ -29,7 +29,11 @@ Additional dependencies are specified in the [`Dockerfile`](Dockerfile).
 git clone https://github.com/farkasvic/CPeptide-Diabetes-Regression-Group-42.git
 cd CPeptide-Diabetes-Regression-Group-42
 ```
-
+3. Create the environment from the `environment.yml` file and activate:
+```
+conda env create -f environment.yml
+conda activate diabetesgroup42env
+```
 #### Running the Analysis
 
 If using Windows or Mac, make sure that Docker Desktop is running.
