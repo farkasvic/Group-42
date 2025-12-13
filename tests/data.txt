@@ -1,0 +1,2 @@
+This is a text file, not a CSV file.
+It contains plain text data.
