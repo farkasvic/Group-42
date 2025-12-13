@@ -107,14 +107,14 @@ run:
 up: ## stop and start docker-compose services
 	# by default stop everything before re-creating
 	make stop
-	docker-compose up -d
+	docker compose up -d
 	docker exec -it dockerlock bash
 
 ## stop docker-compose services and remove conatiner
 .PHONY: stop
 stop: 
-	docker-compose stop
-	docker-compose rm
+	docker compose stop
+	docker compose rm
 
 # docker multi architecture build rules (from Claude) -----
 
