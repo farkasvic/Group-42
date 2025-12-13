@@ -83,3 +83,29 @@ def test_case_sensitivity_filename(test_data_dir):
     filepath = os.path.join(test_data_dir, 'clean_diabetes.csv')
     with pytest.raises(AssertionError, match="Expected filename 'Clean_Diabetes.csv'"):
         check_csv(filepath, 'Clean_Diabetes.csv', '.csv')
+
+
+
+# Parameterized test cases
+
+@pytest.mark.parametrize("wrong_ext", ['.txt', '.xlsx', '.json', ''])
+def test_wrong_extensions(test_data_dir, wrong_ext):
+    """Test that wrong extensions raise AssertionError."""
+    filepath = os.path.join(test_data_dir, 'clean_diabetes.csv')
+    with pytest.raises(AssertionError, match="Expected file extension"):
+        check_csv(filepath, 'clean_diabetes.csv', wrong_ext)
+
+@pytest.mark.parametrize("wrong_name", [
+    'wrong.csv',
+    'diabetes.csv',
+    'CLEAN_DIABETES.CSV',
+    ''
+])
+def test_wrong_filenames(test_data_dir, wrong_name):
+    """Test that wrong filenames raise AssertionError."""
+    filepath = os.path.join(test_data_dir, 'clean_diabetes.csv')
+    with pytest.raises(AssertionError, match="Expected filename"):
+        check_csv(filepath, wrong_name, '.csv')
+
+if __name__ == "__main__":
+    pytest.main([__file__, '-v'])
