@@ -20,7 +20,7 @@ Additional dependencies are specified in the [`Dockerfile`](Dockerfile).
 
 ## Usage
 
-### First Time Setup
+#### First Time Setup
 
 1. [Install](https://www.docker.com/get-started/) and launch Docker on your computer.
 2. Clone this GitHub repository and navigate to the project folder using the following commands:
@@ -30,7 +30,7 @@ git clone https://github.com/farkasvic/CPeptide-Diabetes-Regression-Group-42.git
 cd CPeptide-Diabetes-Regression-Group-42
 ```
 
-### Running the Analysis
+#### Running the Analysis
 
 If using Windows or Mac, make sure that Docker Desktop is running.
 
@@ -56,11 +56,11 @@ make stop
 
 ## Developer notes
 
-### Developer dependencies
+#### Developer dependencies
 
 - `conda`
 
-### Adding a new dependency
+#### Adding a new dependency
 
 1. Add the dependency to the `environment.yml` on a new branch.
 
@@ -92,4 +92,4 @@ Centers for Disease Control and Prevention. (2025, September 17). FASTSTATS - le
 
 World Health Organization. (n.d.). Diabetes. https://www.who.int/news-room/fact sheets/detail/diabetes
 
-Cleveland Clinic. (2025, July 22). C-peptide test: What it is, purpose, procedure & results. https://my.clevelandclinic.org/health/diagnostics/24242-c-peptide-test
+Cleveland Clinic. (2025, July 22). C-peptide test: What it is, purpose, procedure & results. https://my.clevelandclinic.org/health/diagnostics/24242-c-peptide-test.
