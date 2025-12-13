@@ -3,6 +3,7 @@ import os
 import sys
 import pytest
 import tempfile
+import shutil
 
 # Add the src directory to the path to import the module
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
@@ -104,6 +105,14 @@ def test_wrong_filenames(test_data_dir, wrong_name):
     filepath = os.path.join(test_data_dir, 'clean_diabetes.csv')
     with pytest.raises(AssertionError, match="Expected filename"):
         check_csv(filepath, wrong_name, '.csv')
+
+def teardown_module():
+    """Clean up test files and directories after all tests"""
+    # remove test data directory if it exists
+    if os.path.exists('tests/test_data'):
+        shutil.rmtree('tests/test_data')
+    if os.path.exists('tests/new_test_dir'):
+        shutil.rmtree('tests/new_test_dir')
 
 if __name__ == "__main__":
     pytest.main([__file__, '-v'])
