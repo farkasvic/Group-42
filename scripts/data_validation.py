@@ -6,8 +6,6 @@ integrity checks. Also checks the file is named correctly and uses the correct f
 
 """
 
-
-
 import os
 import pandas as pd
 import pandera as pa
@@ -71,9 +69,9 @@ def main(cleaned_data):
             expected_filename=correct_filename, 
             expected_extension=correct_extension
         )
-        print("✅ File format and name validation passed.")
+        print("File format and name validation passed.")
     except AssertionError as e:
-        print(f"❌ File validation failed: {e}")
+        print(f"File validation failed: {e}")
         return
   
     diabetes_df = pd.read_csv(cleaned_data)
@@ -81,7 +79,7 @@ def main(cleaned_data):
     # Validate
     try:
         schema_basic.validate(diabetes_df)
-        print("✅ Basic schema validation passed (columns, types, missingness).")
+        print("Basic schema validation passed (columns, types, missingness).")
     except Exception as e:
         print(f"Basic schema validation failed: {e}")
 
@@ -92,14 +90,14 @@ def main(cleaned_data):
         suite = data_integrity()
         suite.run(ds_diabetes)  # just run, no HTML output
 
-        print("✅ Data validation suite passed.")
+        print("Data validation suite passed.")
     except Exception as e:
         print(f"Data validation failed: {e}")
 
 
     try:
         schema_ranges.validate(diabetes_df)
-        print("✅ Range and duplicate checks passed.")
+        print("Range and duplicate checks passed.")
     except Exception as e:
         print(f"Range/duplicate validation failed: {e}")
 
